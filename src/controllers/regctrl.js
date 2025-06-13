@@ -65,21 +65,6 @@ exports.admininfo = (req, res) => {
   });
 };
 
-// //courepage display
-// exports.courdisplay=(req,res)=>{
-//   res.render(course.ejs);
-// };
-
-
-// //course
-//  exports.courseadd=(req,res)=>{
-//   if(!req.session.admin){
-//     return res.redirect("/adminlogin");
-//   }
-//   res.render("course.ejs");
-//  }
-
-
 // Logout
 exports.adminlogout = (req, res) => {
   req.session.destroy((err) => {
