@@ -8,14 +8,14 @@ router.get("/adminlogin", controller.adminlog);
 router.post("/adminlogin", controller.adminlogin);
 router.get("/adminhome", controller.adminhome);
 router.get("/adinfo",controller.admininfo);
-//display
-// router.get("/cour",controller.courdisplay);
-// router.get("/course",controller.courseadd);
-// router.get("/adminlogout", controller.adminlogout);
-router.get("/studlogin",controller.studlogin);
 
-router.get("/addcourse",controller.addcourse);
-router.post("/savecourse",controller.savecourse);
+router.get("/studlogin",controller.studlogin);
+ // New GET route for displaying form
+router.get("/course", controller.addcourse); 
+//save course
+router.post("/savecourse", controller.savecourse);
+router.post("/deletecourse", controller.deletecourse);
+
 
 
 module.exports = router;
