@@ -92,15 +92,43 @@ exports.studlogin = (req, res) => {
   res.render("studlogin.ejs", { userType: "Admin" });
 };
 
-exports.addcourse=(req,res)=>{
-    res.render("course.ejs");
-}
-exports.savecourse=(req,res)=>{
-  const {cname}=req.body;
-  regModel.saveCourseList(cname).then(()=>{
-    res.send("course save sucefulyy")
-  })
-  .catch((err)=>{
-   console.log("Error saving course:", err);
-  })
-}
+// Load addcourse page with existing data
+exports.addcourse = (req, res) => {
+    regModel.fetchCourseList() 
+        .then(courseList => {
+            res.render("course", { courseList, msg: req.query.msg || "" });
+        })
+        .catch(err => {
+            console.log("Error fetching course list:", err);
+            res.render("course", { courseList: [], msg: "Error loading courses" });
+        });
+};
+
+
+//save course
+exports.savecourse = (req, res) => {
+    const { cname } = req.body;
+    regModel.saveCourseList(cname)
+        .then(() => {
+            res.redirect('/course?msg=Course added successfully');
+        })
+        .catch((err) => {
+            console.log("Error saving course:", err);
+            res.redirect('/course?msg=Error adding course');
+        });
+};
+
+//delete course
+
+exports.deletecourse = (req, res) => {
+  const courseId = req.body.cid;
+
+  regModel.deleteCourseById(courseId)
+    .then(() => {
+      res.redirect('/course');  
+    })
+    .catch((err) => {
+      console.log("Error deleting course:", err);
+      res.redirect('/course');  
+    });
+};

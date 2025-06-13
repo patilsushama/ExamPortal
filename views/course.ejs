@@ -106,11 +106,11 @@
 
     .ctable a:hover {
       color: #c9302c;
-    } 
+    }
   </style>
 </head>
 <body>
-  <div class="flexparent">
+    <div class="flexparent">
     <div class="c1">
       <h2>Add New Course</h2>
       <form name="frm" method="post" action="/savecourse">
@@ -118,9 +118,45 @@
         <input type="text" id="cname" name="cname" placeholder="Enter Course" required>
         <input type="submit" name="b" id="but" value="Add Course">
       </form>
+      <br>
+      <% if (msg) { %>
+  <p style="color: green; font-weight: bold;"><%= msg %></p>
+<% } %>
     </div>
 
-    
+   
+    <div class="c2">
+      <h1>Existing Courses</h1>
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th>Course ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (courseList && courseList.length > 0) { %>
+            <% courseList.forEach(course => { %>
+              <tr>
+                <td><%= course.cid %></td>
+                <td><%= course.cname %></td>
+                <td>
+                  <form action="/deletecourse" method="POST" style="display:inline;">
+                    <input type="hidden" name="cid" value="<%= course.cid %>">
+                    <button type="submit" style="background:none;border:none;color:#d9534f;font-weight:bold;cursor:pointer;">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="3">No courses available.</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </body>
 </html>
