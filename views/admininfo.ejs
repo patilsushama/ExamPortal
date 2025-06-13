@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    Welcome to Exam Application System
+  </div>
+
+  <div class="slider">
+    <div class="s1">
+      <h3>Admin</h3>
+      <a href="/adinfo">Admin</a>
+      <a href="#">Subject</a>
+      <a href="#">Exam</a>
+      <a href="#">Questions</a>
+      <a href="#">Schedule</a>
+    </div>
+
+    <div class="s2">
+     <div class="flexdiv">
+        <div class="admin-title">Admin Information</div>
+<table class="admin-table">
+  <tr>
+    <th>Admin ID</th>
+    <th>Admin Name</th>
+    <th>Admin Password</th>
+  </tr>
+  <tr>
+    <td><%= admin.adm_id %></td>
+    <td><%= admin.aname %></td>
+    <td><%= admin.apassword %></td>
+  </tr>
+</table>
+     </div>
+    </div>
+  </div>
+
+    
+</body>
+</html>

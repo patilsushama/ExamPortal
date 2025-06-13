@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <%- include("nav.ejs") %>
+    <center>
+        <div class="container1">
+            <h1>Admin Login</h1>
+
+            <form method="POST" action="/adminlogin">
+                <input type="text" name="admin_name" placeholder="Enter Username" required><br><br><br>
+                <input type="password" name="admin_pass" placeholder="Enter Password" required><br><br><br>
+                <input type="submit" id="b" value="Login"><br>
+            </form>
+            
+            <% if (msg) { %>
+              <p style="color: red;"><%= msg %></p>
+            <% } %>
+
+        </div>
+    </center>
+</body>
+</html>
+
+
