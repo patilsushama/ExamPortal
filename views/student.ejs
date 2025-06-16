@@ -1,0 +1,68 @@
+<html>
+    <head>
+ <link rel="stylesheet"href="./style.css"/>
+    <style>
+      .container1 {
+        width: 400px;
+        padding: 25px;
+        height:420px;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      input[type="text"],
+      input[type="submit"],
+      input[type="password"] {
+        width: 100%;
+        padding: 7px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      #b {
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial;
+      }
+      #dont
+      {
+        font-size: 0.8rem;
+        margin-top: 20px;
+      }
+    </style>
+    </head>
+    <body>
+    
+     <center>
+  <div class="container1">
+    <form action="/studlogin" method="POST">
+      <label><h1>Student Login</h1></label>
+
+      <div>
+        <input type="text" name="username" placeholder="Enter UserName" autocomplete="off" required><br><br><br>
+      </div>
+      <div>
+        <input type="password" name="password" placeholder="Enter password" autocomplete="off" required><br><br>
+      </div>
+      <div>
+        <input type="submit" id="b" value="login" style="background-color: blue;"><br>
+      </div>
+
+      <h1 id="dont">Don't have an account? <a href="/studentreg">Register</a></h1>
+    </form>
+    <% if (typeof errorMessage !== 'undefined') { %>
+  <p style="color: red;"><%= errorMessage %></p>
+<% } %>
+
+  </div>
+</center>
+
+    </body>
+</html>

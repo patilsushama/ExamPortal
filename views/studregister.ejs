@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Student Registration</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <style>
+      .container1 {
+        width: 700px;
+        padding: 30px;
+        height:400px;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        margin-top: 80px;
+      }
+
+      input[type="text"],
+      input[type="submit"],
+       input[type="password"]{
+        width: 40%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      #studsub {
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 30px;
+      }
+
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial;
+      }
+      #dont
+      {
+        font-size: 0.8rem;
+        margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+    <center>
+         <form action="/studentregister" method="POST">
+         <div class="container1">
+            <label><h1>Student Registration</h1></label>
+            <div>
+               <input type="text" name="sname" value="" placeholder="Enter Name" autocomplete="off" required/>
+                <input type="text" name="semail" value="" placeholder="Enter Email" autocomplete="off" required/><br>
+            </div><br><br>
+        
+            <div>
+                <input type="password" name="spassword" value="" placeholder="Enter Password" autocomplete="off" required/>
+                <input type="text" name="scontact" value="" placeholder="Enter Contact" autocomplete="off" required/>
+           
+            <div>
+                <input type="submit"id="studsub" value="Register" style="background-color: blue;"><br>
+            </div><br><br>
+           <% if (message) { %>
+            <p style="color: green; font-weight: bold;"><%= message %><a href="/studentlogin" style="margin-left: 10px;font-size: 0.8rem;"> Login</a></p>
+        <% } %>
+         
+        </div> 
+        </form>
+    </center>
+</body>
+</html>
