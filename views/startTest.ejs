@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Start Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f8fc;
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+
+    .test-container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #f8f9fb;
+      border: 1px solid #dfe7f3;
+      border-radius: 12px;
+    }
+
+    .question h4 {
+      margin-bottom: 15px;
+    }
+
+    .options label {
+      display: block;
+      padding: 10px 15px;
+      background: #e9f0fb;
+      border: 1px solid #cddbf0;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .options input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .submit-btn {
+      display: block;
+      margin: 30px auto 0;
+      background-color: #007bff;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .no-questions {
+      text-align: center;
+      font-size: 18px;
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📝 Online Test</h2>
+
+  <% if (questions.length === 0) { %>
+    <p class="no-questions">❌ No questions available for this course.</p>
+  <% } else { %>
+    <form action="/submitTest" method="POST" class="test-container">
+  <% questions.forEach((q, index) => { %>
+    <div class="question">
+      <h4><%= index + 1 %>. <%= q.qname %></h4>
+      <div class="options">
+        <label><input type="radio" name="answers[<%= q.qid %>]" value="1" required> <%= q.op1 %></label>
+        <label><input type="radio" name="answers[<%= q.qid %>]" value="2"> <%= q.op2 %></label>
+        <label><input type="radio" name="answers[<%= q.qid %>]" value="3"> <%= q.op3 %></label>
+        <label><input type="radio" name="answers[<%= q.qid %>]" value="4"> <%= q.op4 %></label>
+      </div>
+    </div>
+  <% }) %>
+
+  <input type="hidden" name="cid" value="<%= schedule.cid %>">
+  <input type="hidden" name="schid" value="<%= schedule.schid %>">
+
+  <button type="submit" class="submit-btn">Submit Test</button>
+</form>
+
+  <% } %>
+
+</body>
+</html>

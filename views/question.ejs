@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      /* padding: 30px; */
+      padding-bottom: 100px;
+       overflow: hidden;
+    }
+
+    .parent {
+      display: flex;
+      gap: 30px;
+      width: 100%;
+       overflow: visible;
+       align-items: flex-start;
+         height: 100vh;  
+    }
+
+ .q1 {
+  margin-bottom: 100px; 
+   max-height: 650px;  
+  overflow: hidden;
+  height: fit-content; 
+}
+
+.q2{
+    max-height: 650px;      
+  overflow-y: auto;
+  height: 100%;  
+}
+
+    .q1, .q2 {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form label {
+      display: block;
+      margin: 10px 0 4px;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      height: 38px;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .form-row > div {
+      flex: 1;
+    }
+
+    button {
+      display: block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color:  #2c699a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+       background-color: #2c699a;
+      color: white;
+    }
+
+    td a {
+      color: red;
+      text-decoration: none;
+    }
+
+    td a:hover {
+      text-decoration: underline;
+    }
+
+ 
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    Welcome to Exam Application System
+  </div>
+
+  <div class="slider">
+    <div class="s1">
+      <h3>Admin</h3>
+      <a href="/adinfo">👨‍💼 Admin</a>
+      <a href="/course">📚 Subject</a>  
+      <a href="/examinfo">📝 Exam</a>
+      <a href="/questioninfo">❓ Questions</a>
+      <a href="/schedule"> 📅 Schedule</a>
+      <a href="/logoutadmin">🚪 Home</a>
+    </div>
+
+    <div class="s2">
+      <div class="parent">
+    <div class="q1">
+      <h2 style="color:#24587f;">Add New Question</h2>
+      <form name="frm" method="post" action="/savequestion">
+        <label>Question</label>
+        <input type="text" name="qname">
+
+        <div class="form-row">
+          <div>
+            <label>Option 1</label>
+            <input type="text" name="op1" autocomplete="off">
+          </div>
+          <div>
+            <label>Option 2</label>
+            <input type="text" name="op2" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label>Option 3</label>
+            <input type="text" name="op3" autocomplete="off">
+          </div>
+          <div>
+            <label>Option 4</label>
+            <input type="text" name="op4" autocomplete="off">
+          </div>
+        </div>
+
+       <label for="correctAnswer">Correct Answer (Option Number)</label>
+<input type="number" id="correctAnswer" name="answer" min="1" max="4" required autocomplete="off">
+<span id="optionError" style="color: red; font-size: 0.9em;"></span>
+
+      
+<select name="cid" required>
+  <option value="">-- Select Course --</option>
+  <% courseList.forEach(function(course) { %>
+    <option value="<%= course.cid %>"><%= course.cname %></option>
+  <% }); %>
+</select>
+
+ <button type="submit">Save Question</button>
+
+  <% if (message) { %>
+    <div style="padding: 10px; background-color: #dff0d8; color: #3c763d; margin-bottom: 10px; border-radius: 5px;">
+      <%= message %>
+    </div>
+  <% } %>
+      </form>
+
+      
+    </div>
+
+    <div class="q2">
+      <h2 style="color:#24587f;">Question List</h2>
+      <table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Sr.No</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Actions</th>
+  </tr>
+  <% questionList.forEach((question, index) => { %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td>
+       <b> <%= question.qname %><br></b>
+        1.<%= question.op1 %>&nbsp;
+        2.<%= question.op2 %>&nbsp;
+        3.<%= question.op3 %>&nbsp;
+        4.<%= question.op4 %>
+      </td>
+      <td><%= question.answer %></td>
+      <td><a href="/deletequestion/<%= question.qid %>">🗑️</a></td>
+    </tr>
+  <% }) %>
+</table>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+<script>
+  const correctAnswer = document.getElementById("correctAnswer");
+  const optionError = document.getElementById("optionError");
+
+  correctAnswer.addEventListener("keydown", function (event) {
+    if (event.key === "e" || event.key === "E" || event.key === "+" || event.key === "-" || event.key === ".") {
+      event.preventDefault(); 
+    }
+  });
+
+  correctAnswer.addEventListener("input", function () {
+    const value = correctAnswer.value;
+
+    if (value === "") {
+      optionError.textContent = "Please enter a number between 1 to 4.";
+      correctAnswer.style.border = "2px solid red";
+    }
+
+    else if (value !== "1" && value !== "2" && value !== "3" && value !== "4") {
+      optionError.textContent = "Only numbers 1, 2, 3, or 4 are allowed.";
+      correctAnswer.style.border = "2px solid red";
+    }
+
+    else {
+      optionError.textContent = "";
+      correctAnswer.style.border = "2px solid black";
+    }
+  });
+</script>
+
+</body>
+</html>

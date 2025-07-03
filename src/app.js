@@ -11,7 +11,6 @@ require("dotenv").config();
 app.use(express.static("public"));
 const db=require("./config/db.js");
 app.use(express.urlencoded({ extended: true }));
-app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json());
@@ -22,7 +21,6 @@ app.use(session({
 }));
 
 app.use("/",router);
-
 module.exports=app;
 
 

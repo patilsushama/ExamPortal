@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Information</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1e88e5, #00c6ff);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .course-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .course-card {
+      background: #ffffff;
+      color: #333;
+      padding: 40px;
+      border-radius: 15px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+    }
+
+    .course-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1e88e5;
+      margin-bottom: 12px;
+    }
+
+    .course-info {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    /* icon css home */
+.home-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.home-icon:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+    @media (max-width: 600px) {
+      .course-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="/logoutadmin" class="home-icon">🏡</a>
+  <h1>Available Courses</h1>
+
+  <div class="course-container">
+    <div class="course-card">
+      <div class="course-title">Full Stack Web Development</div>
+      <div class="course-info">Duration: 6 Months</div>
+      <div class="course-info">Fees: ₹35,000</div>
+      <div class="course-info">Placement: 100% Assistance</div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-title">Data Science & AI</div>
+      <div class="course-info">Duration: 8 Months</div>
+      <div class="course-info">Fees: ₹50,000</div>
+      <div class="course-info">Placement: Yes (Top MNCs)</div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-title">Android App Development</div>
+      <div class="course-info">Duration: 4 Months</div>
+      <div class="course-info">Fees: ₹28,000</div>
+      <div class="course-info">Placement: Included</div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-title">Cyber Security Essentials</div>
+      <div class="course-info">Duration: 5 Months</div>
+      <div class="course-info">Fees: ₹40,000</div>
+      <div class="course-info">Placement: Yes</div>
+    </div>
+  </div>
+
+</body>
+</html>

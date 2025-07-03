@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam Result Summary</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       background: linear-gradient(to right, #1e90ff, #00c6ff);
+      padding: 30px;
+      margin: 0;
+    }
+
+    .result-box {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      position: relative;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .summary-item {
+      flex: 1 1 45%;
+      background-color: #ecf0f1;
+      margin: 10px;
+      /* padding: 20px; */
+      border-radius: 10px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #34495e;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .summary-item span {
+      display: block;
+      font-size: 28px;
+      margin-top: 8px;
+      color: #2980b9;
+    }
+
+    /* Home icon CSS */
+    .home-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      text-decoration: none;
+      color: white;
+      background-color: #2980b9;
+      padding: 8px 12px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .home-icon:hover {
+      background-color: #1c5984;
+    }
+
+    /* Hide print button on print */
+    @media print {
+      .home-icon {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Home Icon -->
+  <a href="/logoutadmin" class="home-icon" title="Go Home">🏡</a>
+
+  <!-- Result Box -->
+  <div class="result-box">
+    <h2>📋 Exam Result Summary</h2>
+
+    <div class="summary">
+      <div class="summary-item">Total Students<span>110</span></div>
+      <div class="summary-item">✔️ Passed<span>80</span></div>
+      <div class="summary-item">❌ Failed<span>30</span></div>
+      <div class="summary-item">🏆 Topper<span>5</span></div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,134 +1,168 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Student Dashboard</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-        }
-
-        .header {
-            background-color: #0d6efd;
-            color: white;
-            padding: 20px;
-            font-size: 26px;
-            font-weight: 600;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        .container {
-            display: flex;
-            height: calc(100vh - 72px); 
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #ffffff;
-            border-right: 1px solid #e0e0e0;
-            padding: 30px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .sidebar h2 {
-            color: #333;
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
-        .nav-links {
-            width: 100%;
-        }
-
-        .nav-links a {
-            display: flex;
-            align-items: center;
-            color: #0d6efd;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s ease;
-        }
-
-        .nav-links a i {
-            margin-right: 12px;
-            font-size: 18px;
-        }
-
-        .nav-links a:hover {
-            background-color: #e8f0fe;
-            border-left: 4px solid #0d6efd;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
-        }
-
-        .main-content h3 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .main-content p {
-            font-size: 16px;
-            color: #666; 
-           
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Student Exam View</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      
+    }
+    .header {
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2c699a, #00c6ff);
+      color: white;
+      padding: 20px;
+      font-size: 26px;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .container {
+      display: flex;
+      height: calc(100vh - 72px);
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #ffffff;
+      border-right: 1px solid #e0e0e0;
+      padding: 30px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    }
+    .sidebar h2 {
+      color: #333;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .nav-links {
+      width: 100%;
+    }
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      color:#1976d2;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+    .nav-links a i {
+      margin-right: 12px;
+      font-size: 18px;
+    }
+    .nav-links a:hover {
+      background-color: #e8f0fe;
+      border-left: 4px solid #0d6efd;
+    }
+    .main-content {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background-color:#1976d2;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .btn-start {
+      padding: 6px 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-start:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="header">
-        <i class="fas fa-graduation-cap"></i> Welcome to the Exam Application System
+  <div class="header">
+    <i class="fas fa-graduation-cap"></i> Welcome to the Exam Application System
+  </div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2><i class="fas fa-user-graduate"></i> Student</h2>
+      <div class="nav-links">
+        <a href="/studentinfo"><i class="fas fa-user-plus"></i> Student Profile</a>
+        <a href="/examview"><i class="fas fa-user-plus"></i> Student Exam Registration</a>
+        <a href="/studentexamview"><i class="fas fa-eye"></i> Student Exam View</a>
+       
+      </div>
     </div>
 
-    <div class="container">
-        <div class="sidebar">
-            <h2><i class="fas fa-user-graduate"></i> Student</h2>
-            <div class="nav-links">
-                <a href="/studentinfo"><i class="fas fa-user-plus"></i> Student Profile</a>
-                <a href="/examview"><i class="fas fa-eye"></i> Student Exam View</a>
-                <a href="#"><i class="fas fa-file-download"></i> Download MCQ PDF</a>
+    <!-- Main Content -->
+    <div class="main-content">
+      <h3>Student Exam Schedule</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Exam Name</th>
+            <th>Total Mark</th>
+            <th>Passing Mark</th>
+            <th>Start Test</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% exams.forEach((exam, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= exam.sname %></td>
+              <td><%= exam.cname %></td>
+              <td><%= exam.date.toISOString().split('T')[0] %></td>
+              <td><%= exam.starttime %></td>
+              <td><%= exam.endtime %></td>
+              <td><%= exam.exname %></td>
+              <td><%= exam.totalmark %></td>
+              <td><%= exam.passingmark %></td>
+              <td>
                 
-            </div>
-        </div>
+                <form action="/starttest" method="POST">
+  <input type="hidden" name="cid" value="<%= exam.cid %>">
+  <input type="hidden" name="schid" value="<%= exam.schid %>">
+  <button class="btn-start" type="submit">Start Test</button>
+</form>
 
-        <div class="main-content">
-            <table>
-       <thead>Exam Schedule</thead>
-       <tr>
-         <td>Sr.no</td>
-         <td>Name</td>
-         <td>Course</td>
-         <td>Date</td>
-         <td>Start Time</td>
-         <td>End Time</td>
-         <td>Exam Name</td>
-         <td>Total Marks</td>
-         <td>Passing Marks</td>
-       </tr>
-    </table>
-        </div>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </div>
+  </div>
 
 </body>
-</html> 
+</html>

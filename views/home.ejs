@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      color: white;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar h1 {
+      font-size: 24px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Dashboard Grid */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 60px 80px;
+      justify-items: center;
+	  margin-top:60px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 250px;
+      background: linear-gradient(135deg, #6dd5ed, #2193b0);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 20px 30px;
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      text-align: center;
+      color: white;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .navbar h1 {
+        font-size: 18px;
+      }
+
+      .dashboard {
+        padding: 30px 20px;
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Logo">
+      <h1>Welcome to Exam App</h1>
+    </div>
+    <ul>
+      <li><a href="/homemenu">🏠 Home</a></li>
+      <li><a href="/adminlogin">👩‍💼 Admin</a></li>
+      <li><a href="/studentlogin">👨‍🎓 Student</a></li>
+    </ul>
+  </div>
+
+  <!-- Dashboard 4 Boxes -->
+  <div class="dashboard">
+    <a href="coursein" class="card">
+      <h3>📚 Course Info</h3>
+      <p>View available courses, fees & duration</p>
+    </a>
+    <a href="/examcenter" class="card">
+      <h3>🏫 Exam Centers</h3>
+      <p>See exam locations & seating info</p>
+    </a>
+    <a href="/schdulehome" class="card">
+      <h3>🗓️ Schedule</h3>
+      <p>Check upcoming exam schedules</p>
+    </a>
+    <a href="/resultinfo" class="card">
+      <h3>📈 Results</h3>
+      <p>View your performance and results</p>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Exam Application System. All rights reserved.
+  </footer>
+
+</body>
+</html>
