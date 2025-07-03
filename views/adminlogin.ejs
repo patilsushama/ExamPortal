@@ -5,17 +5,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+      
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: linear-gradient(to right, #2c699a, #00c6ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20px; */
+  }
+
+  .container1 {
+    background-color: #fff;
+    padding: 30px 25px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .container1:hover {
+    transform: scale(1.01);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1976d2;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 50px 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 25px;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #1976d2;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #125fa3;
+  }
+
+  p {
+    margin-top: 15px;
+    color: red;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  /* Home icon style */
+  .home-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+
+  .home-icon:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+</style>
+
+     
 </head>
 <body>
-    <%- include("nav.ejs") %>
+  <a href="/logoutadmin" class="home-icon">🏡</a>
+
     <center>
         <div class="container1">
             <h1>Admin Login</h1>
 
-            <form method="POST" action="/adminlogin">
-                <input type="text" name="admin_name" placeholder="Enter Username" required><br><br><br>
-                <input type="password" name="admin_pass" placeholder="Enter Password" required><br><br><br>
+            <form method="POST" action="/adminlogin" autocomplete="off">
+                <input type="text" name="admin_name" placeholder="Enter Username"  autocomplete="off" required><br><br><br>
+                <input type="password" name="admin_pass" placeholder="Enter Password" autocomplete="off" required><br><br><br>
                 <input type="submit" id="b" value="Login"><br>
             </form>
             

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exam Form</title>
+ 
+  <style>
+
+    /*admin dashboard*/
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f1f5f9;
+    }
+
+    .header {
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .slider {
+      display: flex;
+      height: calc(100vh - 80px);
+    }
+
+    .s1 {
+      flex-basis: 20%;
+      background-color: #f5f5f5;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .s1 h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .s1 a {
+      display: block;
+      padding: 12px 20px;
+      margin: 8px 0;
+       color: #2c699a;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .s1 a:hover {
+      background-color: #e7f0ff;
+      transform: translateX(5px);
+    }
+
+    .s2 {
+      flex-basis: 80%;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+      overflow-y: auto;
+    }
+
+    .s2 h2 {
+      color: #333;
+    }
+   /* //examform css */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      /* padding: 20px; */
+       /* overflow-x: hidden; */
+    }
+
+    .flexparent1 {
+      width: 100%;
+       flex-wrap: wrap;
+      display: flex;
+      gap: 20px;
+      height: auto;
+    }
+
+    .e1, .e2 {
+      flex: 1 1 300px; 
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+       color: #1f3b57;
+      
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    input {
+         width: 350px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      margin-bottom: 15px;
+    }
+
+    #butt {
+      padding: 12px;
+      border: none;
+         width: 350px;
+      background-color:  #2c699a;;
+      color: white;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #butt:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+      font-size: 0.95em;
+    }
+     th {
+       background-color: #2c699a;
+      color: white;
+    }
+
+    td {
+      background-color: #f9f9f9;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+    .slider {
+  display: flex;
+  flex-direction: row;  
+    }
+
+	.s1 {
+  width: 200px;          
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.s2 {
+  flex: 1;               
+  padding: 20px;
+  overflow-x: hidden;    
+}
+
+
+.flexparent1 {
+  display: flex;
+  flex-direction: row;   
+  gap: 20px;
+  flex-wrap: nowrap;   
+}
+
+
+.e1, .e2 {
+  flex: 1;              
+  min-width: 0;         
+}
+	.e2 h2
+  {
+      color: #24587f;
+  }
+  .e1 h2
+  {
+      color: #24587f;
+  }
+
+  
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    Welcome to Exam Application System
+  </div>
+
+  <div class="slider">
+    <div class="s1">
+      <h3>Admin</h3>
+      <a href="/adinfo">👨‍💼 Admin</a>
+      <a href="/course">📚 Subject</a>  
+      <a href="/examinfo">📝 Exam</a>
+      <a href="/questioninfo">❓ Questions</a>
+      <a href="/schedule"> 📅 Schedule</a>
+      <a href="/logoutadmin">🚪 Home</a>
+    </div>
+
+    <div class="s2">
+      <div class="flexparent1">
+        <div class="e1">
+          <h2><%= editingExam ? "Update Exam" : "Exam Form" %></h2>
+          <form method="post" action="<%= editingExam ? '/updateexam' : '/saveexform' %>">
+            <% if (editingExam) { %>
+              <input type="hidden" name="ex_id" value="<%= editingExam.ex_id %>">
+            <% } %>
+
+            <label>Exam Name</label>
+            <input type="text" name="exname" required value="<%= editingExam ? editingExam.exname : '' %>" autocomplete="off">
+
+            <label>Total Marks</label>
+<input type="number" name="totalmark" id="totalmark" required min="1"
+  value="<%= editingExam ? editingExam.totalmark : '' %>" autocomplete="off">
+<span id="totalmarkError" style="color: red; font-size: 0.9em;"></span>
+
+<label>Passing Marks</label>
+<input type="number" name="passingmark" id="passingmark" required min="0"
+  value="<%= editingExam ? editingExam.passingmark : '' %>" autocomplete="off">
+<span id="passingmarkError" style="color: red; font-size: 0.9em;"></span>
+
+
+            <input type="submit" id="butt" value="<%= editingExam ? 'Update Exam' : 'Submit Exam' %>">
+          </form>
+        </div>
+
+        <div class="e2">
+          <h2>Exam List</h2>
+          <table>
+            <tr>
+              <th>Exam Id</th>
+              <th>Exam Name</th>
+              <th>Total Marks</th>
+              <th>Passing Marks</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+            <% examlist.forEach(function(exam){%>
+            <tr>
+              <td><%= exam.ex_id %></td>
+              <td><%= exam.exname %></td>
+              <td><%= exam.totalmark %></td>
+              <td><%= exam.passingmark %></td>
+              <td><a href="/updateexam/<%= exam.ex_id %>" style=" color: #2c699a;">📝</a></td>
+              <td>
+                <form action="/deleteexam" method="post"  style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this exam?');">
+                  <input type="hidden" name="ex_id" value="<%= exam.ex_id %>">
+                  <button type="submit" style="background:none; border:none; color:red; cursor:pointer;">🗑️</button>
+                </form>
+              </td>
+            </tr>
+            <% });%>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+  const totalInput = document.getElementById("totalmark");
+  const passingInput = document.getElementById("passingmark");
+
+  const totalError = document.getElementById("totalmarkError");
+  const passingError = document.getElementById("passingmarkError");
+
+  function allowOnlyNumbers(event) {
+    let key = event.key;
+    if (key < "0" || key > "9") {
+      event.preventDefault(); 
+    }
+  }
+
+  totalInput.addEventListener("keypress", allowOnlyNumbers);
+  passingInput.addEventListener("keypress", allowOnlyNumbers);
+
+
+  function checkMarks() {
+    let totalText = totalInput.value;
+    let passingText = passingInput.value;
+
+    totalError.textContent = "";
+    passingError.textContent = "";
+
+    if (totalText === "" || Number(totalText) <= 0) {
+      totalError.textContent = "Please enter total marks more than 0.";
+    }
+
+    if (passingText === "" || Number(passingText) < 0) {
+      passingError.textContent = "Please enter passing marks 0 or more.";
+    }
+
+    if (totalText !== "" && passingText !== "") {
+      let total = Number(totalText);
+      let passing = Number(passingText);
+
+      if (passing >= total) {
+        passingError.textContent = "Passing marks must be less than total marks.";
+      }
+    }
+  }
+
+  totalInput.addEventListener("input", checkMarks);
+  passingInput.addEventListener("input", checkMarks);
+
+
+  document.querySelector("form").addEventListener("submit", function (e) {
+    checkMarks();
+    if (totalError.textContent !== "" || passingError.textContent !== "") {
+      e.preventDefault(); 
+      alert("Please fix the errors before submitting the form.");
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

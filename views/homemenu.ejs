@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome - Exam App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2c699a, #00c6ff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #2c699a;
+    }
+
+    .container p {
+      color: #444;
+      font-size: 16px;
+    }
+
+    .icon {
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: #00a8e8;
+    }
+
+    
+/* icon css home */
+.home-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.home-icon:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+      <a href="/logoutadmin" class="home-icon">🏡</a>
+  <div class="container">
+    <div class="icon">📝</div>
+    <h1>Welcome to Exam App</h1>
+    <p>Your centralized system to manage courses, exams, and results.</p>
+  </div>
+</body>
+</html>

@@ -1,68 +1,163 @@
-<html>
-    <head>
- <link rel="stylesheet"href="./style.css"/>
-    <style>
-      .container1 {
-        width: 400px;
-        padding: 25px;
-        height:420px;
-        border: 1px solid black;
-        border-radius: 10px;
-        background-color: white;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-      input[type="text"],
-      input[type="submit"],
-      input[type="password"] {
-        width: 100%;
-        padding: 7px;
-        margin: 10px 0;
-        font-size: 16px;
-      }
+    body {
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2c699a, #00c6ff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-      #b {
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-      }
+    .container1 {
+      background-color: #fff;
+      padding: 30px 25px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
 
-      body {
-        background-color: #f2f2f2;
-        font-family: Arial;
-      }
-      #dont
-      {
-        font-size: 0.8rem;
-        margin-top: 20px;
-      }
-    </style>
-    </head>
-    <body>
-    
-     <center>
+    .container1:hover {
+      transform: scale(1.01);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #1976d2;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 35px 10px 12px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #1976d2;
+    }
+
+    .form-group i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+    }
+
+    #b {
+      width: 100%;
+      padding: 10px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #b:hover {
+      background-color: #125fa3;
+    }
+
+    #dont {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #dont a {
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    #dont a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+        
+/* icon css home */
+.home-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.home-icon:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+  
+  </style>
+</head>
+<body>
+   <a href="/logoutadmin" class="home-icon">🏡</a>
   <div class="container1">
     <form action="/studlogin" method="POST">
-      <label><h1>Student Login</h1></label>
+      <h1>Student Login</h1>
 
-      <div>
-        <input type="text" name="username" placeholder="Enter UserName" autocomplete="off" required><br><br><br>
-      </div>
-      <div>
-        <input type="password" name="password" placeholder="Enter password" autocomplete="off" required><br><br>
-      </div>
-      <div>
-        <input type="submit" id="b" value="login" style="background-color: blue;"><br>
+      <div class="form-group">
+        <input type="text" name="username" placeholder="Enter Username" autocomplete="off" required>
+        <i class="fas fa-user"></i>
       </div>
 
-      <h1 id="dont">Don't have an account? <a href="/studentreg">Register</a></h1>
+      <div class="form-group">
+        <input type="password" name="password" placeholder="Enter Password" autocomplete="off" required>
+        <i class="fas fa-lock"></i>
+      </div>
+
+      <div>
+        <input type="submit" id="b" value="Login">
+      </div>
+
+      <div id="dont">Don't have an account? <a href="/studentreg">Register</a></div>
+
+      <% if (typeof errorMessage !== 'undefined') { %>
+        <p class="error-message"><%= errorMessage %></p>
+      <% } %>
     </form>
-    <% if (typeof errorMessage !== 'undefined') { %>
-  <p style="color: red;"><%= errorMessage %></p>
-<% } %>
-
   </div>
-</center>
 
-    </body>
+</body>
 </html>

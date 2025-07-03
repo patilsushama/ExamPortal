@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam Centers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1e90ff, #00c6ff);
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 300px;
+      padding: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: #007acc;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+       /* icon css home */
+.home-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.home-icon:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+  </style>
+</head>
+<body>
+  <a href="/logoutadmin" class="home-icon">🏡</a>
+  <h1>Available Exam Centers</h1>
+
+  <div class="card-container">
+    <div class="card">
+      <h2>Pune Exam Center</h2>
+      <p>Location: Shivaji Nagar</p>
+      <p>Capacity: 80 Students</p>
+      <p>Supervisor: Mr. Patil</p>
+    </div>
+
+    <div class="card">
+      <h2>Mumbai Exam Center</h2>
+      <p>Location: Andheri West</p>
+      <p>Capacity: 120 Students</p>
+      <p>Supervisor: Ms. Sharma</p>
+    </div>
+
+    <div class="card">
+      <h2>Nashik Exam Center</h2>
+      <p>Location: College Road</p>
+      <p>Capacity: 60 Students</p>
+      <p>Supervisor: Mr. Deshmukh</p>
+    </div>
+  </div>
+
+</body>
+</html>

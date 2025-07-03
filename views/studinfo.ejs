@@ -22,7 +22,7 @@
         }
 
         .header {
-            background-color: #0d6efd;
+              background: linear-gradient(to right, #2c3e50, #3498db);
             color: white;
             padding: 20px;
             font-size: 26px;
@@ -60,7 +60,7 @@
         .nav-links a {
             display: flex;
             align-items: center;
-            color: #0d6efd;
+           color: #2c699a;
             padding: 12px 25px;
             text-decoration: none;
             font-size: 16px;
@@ -94,17 +94,6 @@
             color: #666;
         }
 
-        /* .subcont
-        {
-            width:400px;
-            height: 300px;
-            border: 1px solid black; 
-            background-color: white;
-            margin:auto auto;
-            margin-top: 30px;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        }*/
-
         .subcont {
             width: 450px;
             background-color: #ffffff;
@@ -126,13 +115,13 @@
 
         .profile-header h2 {
             font-size: 24px;
-            color: #0d6efd;
+            color:#2c699a;
             margin-top: 10px;
         }
 
         .profile-icon {
             font-size: 50px;
-            color: #0d6efd;
+            color: #2c699a;
         }
 
         .profile-details p {
@@ -160,7 +149,7 @@
 <body>
 
     <div class="header">
-        <i class="fas fa-graduation-cap"></i> Welcome to the Exam Application System
+          🎓 Welcome to the Exam Application System
     </div>
 
     <div class="container">
@@ -168,14 +157,14 @@
             <h2><i class="fas fa-user-graduate"></i> Student</h2>
             <div class="nav-links">
                 <a href="/studentinfo"><i class="fas fa-user-plus"></i> Student Profile</a>
-                <a href="/examview"><i class="fas fa-eye"></i> Student Exam View</a>
-                <a href="#"><i class="fas fa-file-download"></i> Download MCQ PDF</a>
-                
+                <a href="/examview"><i class="fas fa-edit"></i> Student Exam Registration</a>
+                <a href="/studentexamview"><i class="fas fa-eye"></i> Student Exam View</a>
+
             </div>
         </div>
 
         <div class="main-content">
-           
+
             <div class="subcont">
                 <div class="profile-header">
                     <i class="fas fa-user-circle profile-icon"></i>
@@ -196,11 +185,12 @@
                         </span></p>
                 </div>
                 <form action="/studentlogout" method="GET" style="text-align: center; margin-top: 20px;">
-                    <h1 style="font-size: 0.8rem;">Want's to delete an account?</h1>
-    <button type="submit" style="padding: 10px 20px; background-color: crimson; color: white; border: none; border-radius: 5px; cursor: pointer;">
-   <i class="fas fa-sign-out-alt"></i> Logout
-    </button>
-</form>
+                    <h1 style="font-size: 0.8rem;margin-top: 10px;">Want's to delete an account?</h1>
+                    <button type="submit"
+                        style="padding: 10px 20px; background-color: crimson; color: white; border: none; border-radius: 5px; cursor: pointer;margin-top: 10px;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
 
             </div>
 
